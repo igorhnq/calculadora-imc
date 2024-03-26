@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body class="flex items-center justify-center h-screen bg-slate-900 text-white">
+    <div class="w-96 h-96 bg-slate-800 p-8">
+        <div id="calc-contender">
+            <h2 class="text-center">Calculadora de IMC</h2>
+            <form id="imc-form">
+                <div class="flex flex-col justify-between">
+                    <div class="flex flex-col flex-1 mb-4">
+                        <label class="font-bold mb-2.5 text-white" for="height">Altura:</label>
+                        <input class="py-4 px-2" type="text" name="height" id="height" placeholder="1.75">
+                    </div>
+                    <div class="flex flex-col flex-1 mb-4">
+                        <label class="font-bold mb-2.5 text-white" for="weight">Peso:</label>
+                        <input class="py-4 px-2" type="text" name="weight" id="weight" placeholder="70.5">
+                    </div>
+                </div>
+                <div class="flex justify-between gap-4">
+                    <button class="uppercase p-4 bg-red-500 pointer opacity-90 flex-1 font-semibold hover:opacity-100 " id="calc-btn">Calcular</button>
+                    <button class="uppercase p-4 bg-red-500 pointer opacity-90 flex-1 font-semibold hover:opacity-100 " id="clear-btn">Limpar</button>
+                </div>
+            </form>
+        </div>
+        <div class="hidden" id="result-contender">
+            <p id="imc-number">Seu IMC: <span></span></p>
+            <p id="imc-info">Situação atuaL:</p>
+            <h3>Confira as classificações></h3>
+            <div id="imc-table">
+                <div class="table-header">
+                    <h4>IMC</h4>
+                    <h4>Classificação</h4>
+                    <h4>Obesidade</h4>
+                </div>
+            </div>
+            <button id="back-btn">Voltar</button>
+        </div>
+    </div>
+</body>
+</html>
