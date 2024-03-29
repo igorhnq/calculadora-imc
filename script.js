@@ -66,6 +66,12 @@ function createTable(data) {
   });
 }
 
+function calcImc(height, weight) {
+  const imc = (weight / (height * height)).toFixed(1);
+
+  return imc;
+}
+
 function validateDigits(text) {
   return text.replace(/[^0-9.]/g, '');
 }
@@ -80,8 +86,34 @@ function clearInputs() {
     const updatedValue = validateDigits(e.target.value);
 
     e.target.value = updatedValue;
-  })
-})
+  });
+});
+
+calcBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const height = +heightInput.value;
+  const weight = +weightInput.value;
+
+  if (!height || !weight) return;
+
+  const imc = calcImc(height, weight);
+
+  let info;
+
+  data.forEach((item) => {
+    if (imc >= item.min && imc <= item.max) {
+      info = item.info;
+    }
+  });
+
+  console.log(info)
+
+    if (!info) return;
+
+
+
+});
 
 clearBtn.addEventListener('click', (e) => {
   e.preventDefault();
