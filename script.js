@@ -140,4 +140,9 @@ clearBtn.addEventListener('click', (e) => {
   clearInputs();
 });
 
+backBtn.addEventListener('click', () => {
+  clearInputs();
+  showOrHideResults();
+});
+
 createTable(data);
