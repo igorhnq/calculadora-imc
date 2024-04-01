@@ -41,21 +41,29 @@ const heightInput = document.querySelector('#height');
 const weightInput = document.querySelector('#weight');
 const calcBtn = document.querySelector('#calc-btn');
 const clearBtn = document.querySelector('#clear-btn');
+const imcNumber = document.querySelector('#imc-number');
+const imcInfo = document.querySelector('#imc-info span');
+const backBtn = document.querySelector('#back-btn');
+const calcContainer = document.querySelector('#calc-contender');
+const resultContainer = document.querySelector('#result-contender');
 
 function createTable(data) {
   data.forEach((item) => {
     
     const div = document.createElement('div');
-    div.classList.add('table-data');
+    div.classList.add('table-data', 'flex', 'justify-between', 'mb-2', 'pb-2', 'border-b-2', 'border-slate-500', 'items-center');
 
     const classification = document.createElement('p');
     classification.innerText = item.classification;
+    classification.classList.add('flex-1');
 
     const info = document.createElement('p');
     info.innerText = item.info;
+    info.classList.add('flex-1');
 
     const obesity = document.createElement('p');
     obesity.innerText = item.obesity;
+    obesity.classList.add('flex-1');
 
     div.appendChild(classification);
     div.appendChild(info);
@@ -64,6 +72,11 @@ function createTable(data) {
     imcTable.appendChild(div);
 
   });
+}
+
+function showOrHideResults() {
+  calcContainer.classList.toggle('hidden');
+  resultContainer.classList.toggle('hidden');
 }
 
 function calcImc(height, weight) {
@@ -109,7 +122,14 @@ calcBtn.addEventListener('click', (e) => {
 
   console.log(info)
 
-    if (!info) return;
+  if (!info) return;
+
+  imcNumber.innerText = imc;
+  imcInfo.innerText = info;
+
+  showOrHideResults();
+
+  
 
 
 
