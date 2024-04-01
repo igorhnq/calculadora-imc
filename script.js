@@ -92,6 +92,8 @@ function validateDigits(text) {
 function clearInputs() {
   heightInput.value = '';
   weightInput.value = '';
+  imcNumber.classList = '';
+  imcInfo.classList = '';
 }
 
 [heightInput, weightInput].forEach((element) => {
@@ -127,11 +129,30 @@ calcBtn.addEventListener('click', (e) => {
   imcNumber.innerText = imc;
   imcInfo.innerText = info;
 
+  switch(info) {
+    case 'Magreza':
+      imcNumber.classList.add('text-amber-400');
+      imcInfo.classList.add('text-amber-400');
+      break;
+    case 'Normal':
+      imcNumber.classList.add('text-emerald-400');
+      imcInfo.classList.add('text-emerald-400');
+      break;
+    case 'Sobrepeso':
+      imcNumber.classList.add('text-amber-400');
+      imcInfo.classList.add('text-amber-400');
+      break;
+    case 'Obesidade':
+      imcNumber.classList.add('text-orange-400');
+      imcInfo.classList.add('text-orange-400');
+      break;
+    case 'Obesidade grave':
+      imcNumber.classList.add('text-red-400');
+      imcInfo.classList.add('text-red-400');
+      break;
+  }
+
   showOrHideResults();
-
-  
-
-
 
 });
 
